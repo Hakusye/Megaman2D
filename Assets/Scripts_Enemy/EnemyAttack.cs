@@ -46,8 +46,15 @@ public class EnemyAttack : MonoBehaviour
        //攻撃アニメーション開始
        anim.SetBool("Attack", true);
 
-       //攻撃時間
-       yield return new WaitForSeconds(attackTime);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy1_Attack"))
+        {
+            Debug.Log("Attack animation is playing");
+        }
+        else
+        {
+            Debug.Log("Attack animation not playing");
+        }
+
 
        //攻撃アニメーション終了
        anim.SetBool("Attack", false);
